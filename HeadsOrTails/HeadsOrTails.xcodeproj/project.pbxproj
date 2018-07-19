@@ -14,6 +14,7 @@
 		AEFFA46A20FF7D3000AC723E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEFFA46820FF7D3000AC723E /* LaunchScreen.storyboard */; };
 		AEFFA48D20FF910800AC723E /* ship.png in Resources */ = {isa = PBXBuildFile; fileRef = AEFFA48B20FF910700AC723E /* ship.png */; };
 		AEFFA48E20FF910800AC723E /* ship.scn in Resources */ = {isa = PBXBuildFile; fileRef = AEFFA48C20FF910800AC723E /* ship.scn */; };
+		AEFFA4982100B70900AC723E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFFA4972100B70900AC723E /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		AEFFA46B20FF7D3000AC723E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEFFA48B20FF910700AC723E /* ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship.png; sourceTree = "<group>"; };
 		AEFFA48C20FF910800AC723E /* ship.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = ship.scn; sourceTree = "<group>"; };
+		AEFFA4972100B70900AC723E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				AEFFA45F20FF7D2F00AC723E /* AppDelegate.swift */,
+				AEFFA4972100B70900AC723E /* Extensions.swift */,
 				AEFFA46120FF7D2F00AC723E /* ViewController.swift */,
 				AEFFA46320FF7D2F00AC723E /* Main.storyboard */,
 				AEFFA48B20FF910700AC723E /* ship.png */,
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEFFA46220FF7D2F00AC723E /* ViewController.swift in Sources */,
+				AEFFA4982100B70900AC723E /* Extensions.swift in Sources */,
 				AEFFA46020FF7D2F00AC723E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

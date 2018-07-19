@@ -21,6 +21,10 @@ class ViewController: UIViewController {
 
         configureLighting()
         addTapGestureToSceneView()
+
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(flipCoin(_:)))
+        swipeGesture.direction = .up
+        view.addGestureRecognizer(swipeGesture)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -55,33 +59,55 @@ class ViewController: UIViewController {
 
     @objc func handleTap(withGestureRecognizer recognizer: UIGestureRecognizer) {
 
-        guard let coin = coinNode else {
-            addShipToSceneView(recognizer: recognizer)
+        guard coinNode != nil else {
+            addCoinToSceneView(recognizer)
             return
         }
 
-        print("you already have a coin")
+        updateCoinPosition(recognizer)
     }
 
-    func addShipToSceneView(recognizer: UIGestureRecognizer) {
+    func addCoinToSceneView(_ recognizer: UIGestureRecognizer) {
 
-        let tapLocation = recognizer.location(in: arSceneView)
-        let hitTestResults = arSceneView.hitTest(tapLocation, types: .existingPlaneUsingExtent)
-
-        guard let hitTestResult = hitTestResults.first else { return }
-        let translation = hitTestResult.worldTransform.translation
-        let x = translation.x
-        let y = translation.y
-        let z = translation.z
+        let position = getPosition(recognizer)
 
         guard let coinScene = SCNScene(named: "ship.scn"),
             let coinNode = coinScene.rootNode.childNode(withName: "ship", recursively: false)
             else { return }
 
-        coinNode.position = SCNVector3(x,y,z)
+        coinNode.position = position
 
         self.coinNode = coinNode
         arSceneView.scene.rootNode.addChildNode(coinNode)
+    }
+
+    func updateCoinPosition(_ recognizer: UIGestureRecognizer) {
+
+        let position = getPosition(recognizer)
+
+        coinNode?.position = position
+    }
+
+    func getPosition(_ recognizer: UIGestureRecognizer) -> SCNVector3 {
+
+        let tapLocation = recognizer.location(in: arSceneView)
+        let hitTestResults = arSceneView.hitTest(tapLocation, types: .existingPlaneUsingExtent)
+
+        guard let hitTestResult = hitTestResults.first else { return SCNVector3() }
+        let translation = hitTestResult.worldTransform.translation
+        let x = translation.x
+        let y = translation.y
+        let z = translation.z
+
+        let position = SCNVector3(x, y, z)
+        return position
+    }
+
+    @objc func flipCoin(_ gesture: UISwipeGestureRecognizer) {
+
+        guard coinNode != nil else { return }
+
+        print("you are in swipe area")
     }
 }
 
@@ -123,18 +149,5 @@ extension ViewController: ARSCNViewDelegate {
         let y = CGFloat(planeAnchor.center.y)
         let z = CGFloat(planeAnchor.center.z)
         planeNode.position = SCNVector3(x, y, z)
-    }
-}
-
-extension float4x4 {
-    var translation: float3 {
-        let translation = self.columns.3
-        return float3(translation.x, translation.y, translation.z)
-    }
-}
-
-extension UIColor {
-    open class var transparentLightBlue: UIColor {
-        return UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 0.50)
     }
 }
