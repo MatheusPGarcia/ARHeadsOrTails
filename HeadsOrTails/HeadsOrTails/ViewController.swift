@@ -108,7 +108,7 @@ class ViewController: UIViewController {
         guard coinNode != nil else { return }
 
         let duration: Double = 0.3
-        let yDistance: CGFloat = 0.7
+        let yDistance: CGFloat = 0.25
 
         let flips = CGFloat(arc4random_uniform(50) + 50)
         let flipAngle = .pi * flips
