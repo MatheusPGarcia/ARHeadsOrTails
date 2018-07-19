@@ -71,8 +71,8 @@ class ViewController: UIViewController {
 
         let position = getPosition(recognizer)
 
-        guard let coinScene = SCNScene(named: "ship.scn"),
-            let coinNode = coinScene.rootNode.childNode(withName: "ship", recursively: false)
+        guard let coinScene = SCNScene(named: "Coin.scn"),
+            let coinNode = coinScene.rootNode.childNode(withName: "coin", recursively: false)
             else { return }
 
         coinNode.position = position
@@ -107,7 +107,21 @@ class ViewController: UIViewController {
 
         guard coinNode != nil else { return }
 
-        print("you are in swipe area")
+        let duration: Double = 0.3
+        let yDistance: CGFloat = 0.7
+
+        let flips = CGFloat(arc4random_uniform(50) + 50)
+        let flipAngle = .pi * flips
+
+        let upAction = SCNAction.moveBy(x: 0, y: yDistance, z: 0, duration: duration)
+        let downAction = SCNAction.moveBy(x: 0, y: -yDistance, z: 0, duration: duration)
+        let flipAction = SCNAction.rotateBy(x: flipAngle, y: 0, z: 0, duration: (duration * 2))
+
+        let actionsArray = [upAction, downAction]
+        let animationSequence = SCNAction.sequence(actionsArray)
+
+        coinNode?.runAction(animationSequence)
+        coinNode?.runAction(flipAction)
     }
 }
 
