@@ -44,7 +44,7 @@ class ViewController: UIViewController {
         arSceneView.session.run(configuration)
 
         arSceneView.delegate = self
-        arSceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+//        arSceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
     }
 
     func configureLighting() {
@@ -116,6 +116,9 @@ class ViewController: UIViewController {
         let upAction = SCNAction.moveBy(x: 0, y: yDistance, z: 0, duration: duration)
         let downAction = SCNAction.moveBy(x: 0, y: -yDistance, z: 0, duration: duration)
         let flipAction = SCNAction.rotateBy(x: flipAngle, y: 0, z: 0, duration: (duration * 2))
+
+        upAction.timingMode = .easeOut
+        downAction.timingMode = .easeIn
 
         let actionsArray = [upAction, downAction]
         let animationSequence = SCNAction.sequence(actionsArray)
