@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,18 +22,42 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dcw-U0-gHg">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </arscnView>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mG5-CY-MaZ">
+                                <rect key="frame" x="28" y="580.5" width="319" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68D-jU-L6v">
+                                        <rect key="frame" x="0.0" y="0.0" width="319" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="68D-jU-L6v" firstAttribute="leading" secondItem="mG5-CY-MaZ" secondAttribute="leading" id="OY4-cd-CDV"/>
+                                    <constraint firstAttribute="bottom" secondItem="68D-jU-L6v" secondAttribute="bottom" id="S32-gE-jkh"/>
+                                    <constraint firstAttribute="trailing" secondItem="68D-jU-L6v" secondAttribute="trailing" id="ZdU-R7-yho"/>
+                                    <constraint firstItem="68D-jU-L6v" firstAttribute="top" secondItem="mG5-CY-MaZ" secondAttribute="top" id="kL7-VQ-69d"/>
+                                    <constraint firstAttribute="height" constant="40" id="tNB-jb-9T5"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="mG5-CY-MaZ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.8" id="5JM-Xc-Cus"/>
                             <constraint firstItem="Dcw-U0-gHg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Nz7-Ro-ebT"/>
                             <constraint firstItem="Dcw-U0-gHg" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ZUc-9g-3VG"/>
+                            <constraint firstItem="mG5-CY-MaZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="beC-gf-eWa"/>
                             <constraint firstItem="Dcw-U0-gHg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eyo-Zf-8EZ"/>
+                            <constraint firstItem="mG5-CY-MaZ" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.85" id="rUu-g1-ML4"/>
                             <constraint firstItem="Dcw-U0-gHg" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="tl4-4S-ELe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="arSceneView" destination="Dcw-U0-gHg" id="dsr-68-Wql"/>
+                        <outlet property="feedbackBox" destination="mG5-CY-MaZ" id="cVH-SF-7Bh"/>
+                        <outlet property="feedbackLabel" destination="68D-jU-L6v" id="ThL-Di-3vW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

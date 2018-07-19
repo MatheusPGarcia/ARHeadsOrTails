@@ -12,7 +12,9 @@ import ARKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var arSceneView: ARSCNView!
-
+    @IBOutlet weak var feedbackBox: UIView!
+    @IBOutlet weak var feedbackLabel: UILabel!
+    
     var coinNode: SCNNode?
     var startPosition: SCNVector3?
 
@@ -41,7 +43,7 @@ class ViewController: UIViewController {
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
 
-        arSceneView.session.run(configuration)
+        arSceneView.session.run(configuration, options: [.removeExistingAnchors, .resetTracking])
 
         arSceneView.delegate = self
 //        arSceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
@@ -79,6 +81,8 @@ class ViewController: UIViewController {
 
         self.coinNode = coinNode
         arSceneView.scene.rootNode.addChildNode(coinNode)
+
+        hideFeedbackBox()
     }
 
     func updateCoinPosition(_ recognizer: UIGestureRecognizer) {
@@ -110,7 +114,7 @@ class ViewController: UIViewController {
         let duration: Double = 0.3
         let yDistance: CGFloat = 0.25
 
-        let flips = CGFloat(arc4random_uniform(50) + 50)
+        let flips = CGFloat(arc4random_uniform(30) + 50)
         let flipAngle = .pi * flips
 
         let upAction = SCNAction.moveBy(x: 0, y: yDistance, z: 0, duration: duration)
@@ -166,5 +170,51 @@ extension ViewController: ARSCNViewDelegate {
         let y = CGFloat(planeAnchor.center.y)
         let z = CGFloat(planeAnchor.center.z)
         planeNode.position = SCNVector3(x, y, z)
+    }
+}
+
+extension ViewController: ARSessionObserver {
+
+    func sessionWasInterrupted(_ session: ARSession) {
+        showFeedbackBox("Session was interrupted")
+    }
+
+    func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
+        var message: String? = nil
+
+        switch camera.trackingState {
+        case .notAvailable:
+            message = "Tracking not available"
+        case .limited(.initializing):
+            message = "Initializing AR session"
+        case .limited(.excessiveMotion):
+            message = "Too much motion"
+        case .limited(.insufficientFeatures):
+            message = "Not enough surface details"
+        case .normal:
+            if coinNode == nil {
+                message = "Move to find a horizontal surface"
+            }
+        case .limited(.relocalizing):
+            message = "Hit tests not accurates"
+        }
+
+        message != nil ? showFeedbackBox(message!) : hideFeedbackBox()
+    }
+}
+
+extension ViewController {
+
+    func showFeedbackBox(_ text: String) {
+        feedbackLabel.text = text
+
+        feedbackBox.isHidden = false
+
+        feedbackBox.layer.masksToBounds = true
+        feedbackBox.layer.cornerRadius = 7.5
+    }
+
+    func hideFeedbackBox() {
+        self.feedbackBox.isHidden = true
     }
 }

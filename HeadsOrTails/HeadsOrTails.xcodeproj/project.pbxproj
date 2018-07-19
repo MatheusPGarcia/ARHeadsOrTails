@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AE124AA42100D3C200111CE5 /* Coin.scn in Resources */ = {isa = PBXBuildFile; fileRef = AE124AA32100D27200111CE5 /* Coin.scn */; };
+		AE124AA62100FED300111CE5 /* CoinDrop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AE124AA52100FED300111CE5 /* CoinDrop.mp3 */; };
 		AEFFA46020FF7D2F00AC723E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFFA45F20FF7D2F00AC723E /* AppDelegate.swift */; };
 		AEFFA46220FF7D2F00AC723E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFFA46120FF7D2F00AC723E /* ViewController.swift */; };
 		AEFFA46520FF7D2F00AC723E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEFFA46320FF7D2F00AC723E /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		AE124AA32100D27200111CE5 /* Coin.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Coin.scn; sourceTree = "<group>"; };
+		AE124AA52100FED300111CE5 /* CoinDrop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CoinDrop.mp3; sourceTree = "<group>"; };
 		AEFFA45C20FF7D2F00AC723E /* HeadsOrTails.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadsOrTails.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEFFA45F20FF7D2F00AC723E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEFFA46120FF7D2F00AC723E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				AEFFA46620FF7D3000AC723E /* Assets.xcassets */,
 				AEFFA46820FF7D3000AC723E /* LaunchScreen.storyboard */,
 				AEFFA46B20FF7D3000AC723E /* Info.plist */,
+				AE124AA52100FED300111CE5 /* CoinDrop.mp3 */,
 			);
 			path = HeadsOrTails;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 				AEFFA4B92100D19B00AC723E /* Coin-texture.jpg in Resources */,
 				AE124AA42100D3C200111CE5 /* Coin.scn in Resources */,
 				AEFFA46520FF7D2F00AC723E /* Main.storyboard in Resources */,
+				AE124AA62100FED300111CE5 /* CoinDrop.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
