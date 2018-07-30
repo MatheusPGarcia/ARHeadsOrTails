@@ -22,6 +22,7 @@
 /* Begin PBXFileReference section */
 		AE124AA32100D27200111CE5 /* Coin.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Coin.scn; sourceTree = "<group>"; };
 		AE124AB721020DD700111CE5 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		AEA0EF39210A3E570021A03C /* HeadsOrTails.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HeadsOrTails.entitlements; sourceTree = "<group>"; };
 		AEFFA45C20FF7D2F00AC723E /* HeadsOrTails.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadsOrTails.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEFFA45F20FF7D2F00AC723E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEFFA46120FF7D2F00AC723E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +65,7 @@
 		AEFFA45E20FF7D2F00AC723E /* HeadsOrTails */ = {
 			isa = PBXGroup;
 			children = (
+				AEA0EF39210A3E570021A03C /* HeadsOrTails.entitlements */,
 				AEFFA45F20FF7D2F00AC723E /* AppDelegate.swift */,
 				AEFFA46120FF7D2F00AC723E /* ViewController.swift */,
 				AE124AB721020DD700111CE5 /* Coin.swift */,
@@ -119,6 +121,11 @@
 				TargetAttributes = {
 					AEFFA45B20FF7D2F00AC723E = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
