@@ -1,7 +1,7 @@
 # AR Heads Or Tails
 
 ## What it is
-AR Heads Or Tails is a one week project made for me to learn about augmented reality, to be real, I've never tryed anything like AR before, so it was a good challenge to made this app!
+AR Heads Or Tails is a one week project made for me to learn about augmented reality. Being honest, I've never tryed anything like AR before, so it was a good challenge to made this app!
 Oh yeah, and like the name says, it's a Head or Tails flip coin app.
 
 ## Learnings
